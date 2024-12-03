@@ -46,7 +46,6 @@ const Login = () => {
               </Link>
               <label className="label">
                 <Link
-                //   to="/auth/forgot-password"
                   className="label-text-alt link link-hover"
                 >
                   Forgot password?

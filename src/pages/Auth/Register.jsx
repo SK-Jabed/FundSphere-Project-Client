@@ -95,7 +95,7 @@ const Register = () => {
                   className="checkbox h-5 w-5"
                 />
                 <span className="label-text font-semibold">
-                  Accept our Terms and Conditions
+                  Accept our <Link className='underline'>Terms and Conditions</Link>
                 </span>
               </label>
             </div>
