@@ -5,11 +5,16 @@ import Footer from '../components/Footer';
 
 const MainLayout = () => {
     return (
-        <div>
-            <Navbar></Navbar>
-            <Outlet></Outlet>
-            <Footer></Footer>
+      <div>
+        {/* Navbar */}
+        <Navbar></Navbar>
+        {/* Dynamic Contents */}
+        <div className='min-h-[calc(100vh-513px)]'>
+          <Outlet></Outlet>
         </div>
+        {/* Footer */}
+        <Footer></Footer>
+      </div>
     );
 };
 
