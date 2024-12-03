@@ -1,12 +1,11 @@
 import React from 'react';
 
-const Home = () => {
+const AddCampaign = () => {
     return (
         <div>
-            This is Home
             
         </div>
     );
 };
 
-export default Home;
+export default AddCampaign;
