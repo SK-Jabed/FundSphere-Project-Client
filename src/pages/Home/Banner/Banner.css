@@ -1,0 +1,9 @@
+/* Banner.css */
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background: #4f46e5; /* Adjust to your theme color */
+}

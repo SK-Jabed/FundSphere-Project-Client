@@ -1,6 +1,57 @@
 import React from 'react';
+import Swal from 'sweetalert2';
 
 const AddCampaign = () => {
+    const handleAddCampaign = (event) => {
+      event.preventDefault();
+
+      const form = event.target;
+
+      const title = form.title.value;
+      const type = form.type.value;
+      const minDonation = form.minDonation.value;
+      const donors = form.donors.value;
+      const deadline = form.deadline.value;
+      const description = form.description.value;
+      const userName = form.userName.value;
+      const userEmail = form.userEmail.value;
+      const image = form.image.value;
+
+      const newCampaign = {
+        title,
+        type,
+        minDonation,
+        donors,
+        deadline,
+        description,
+        userName,
+        userEmail,
+        image,
+      };
+
+      // Send New Campaign Data to The Server
+      fetch("http://localhost:5000/campaigns", {
+        method: "POST",
+        headers: {
+          "content-type": "application/json",
+        },
+        body: JSON.stringify(newCampaign),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+          if (data.insertedId) {
+            Swal.fire({
+              title: "Success!",
+              text: "Campaign Added Successfully",
+              icon: "success",
+              confirmButtonText: "Okay",
+            });
+          };
+          form.reset();
+        });
+    };
+
     return (
       <div className="lg:w-3/4 mx-auto my-12">
         <div className="card bg-[#F4F3F0] w-full shrink-0 shadow-2xl">
@@ -11,7 +62,7 @@ const AddCampaign = () => {
               the readable content of a page when looking at its layout.
             </p>
           </div>
-          <form className="card-body">
+          <form onSubmit={handleAddCampaign} className="card-body">
             {/* form first row */}
             <div className="flex flex-col lg:flex-row gap-5">
               <div className="form-control flex-1">

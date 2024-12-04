@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
-// import logo from "../../assets/logo.png";
+import logo from "../../src/assets/logo-transparent-png.png";
 // import { authContext } from "../../provider/AuthProvider";
 
 const Navbar = () => {
@@ -101,8 +101,8 @@ const Navbar = () => {
   );
 
   return (
-    <div className="h-24">
-      <div className="bg-white z-50 fixed w-full border-b-2">
+    <div className="h-32">
+      <div className="bg-[#24042d] z-50 fixed w-full border-b-2">
         <div className="container w-11/12 mx-auto py-4">
           <div className="mx-auto flex justify-between items-center">
             <div className="dropdown lg:hidden relative ml-2">
@@ -122,15 +122,15 @@ const Navbar = () => {
               </ul>
             </div>
             <div className="flex items-center gap-1">
-              {/* <img
-                className="w-12 rounded-full hidden md:block"
+              <img
+                className="w-60 h-24"
                 src={logo}
                 alt="Project Logo"
-              ></img> */}
-              <h2 className="text-2xl font-bold text-cyan-600 ml-4 md:ml-0">
+              ></img>
+              {/* <h2 className="text-2xl font-bold text-cyan-600 ml-4 md:ml-0">
                 WARMTH <span className="text-black">&</span>{" "}
                 <span className="text-sky-400">CARE</span>
-              </h2>
+              </h2> */}
             </div>
             <div className="">
               <ul className="hidden lg:flex items-center justify-center gap-6">
