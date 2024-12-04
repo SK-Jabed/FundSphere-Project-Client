@@ -5,9 +5,8 @@ import "swiper/css/pagination";
 import "./Banner.css"; // Custom styles if needed
 
 import { Swiper, SwiperSlide } from "swiper/react";
-import { Autoplay, Pagination, Navigation } from "swiper";
-import "swiper/swiper-bundle.min.css";
-import "swiper/swiper.min.css";
+import { Navigation, Pagination, Autoplay } from "swiper/modules";
+
 
 const Banner = () => {
   const slides = [
