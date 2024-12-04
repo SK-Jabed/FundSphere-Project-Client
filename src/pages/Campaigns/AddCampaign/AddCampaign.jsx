@@ -21,7 +21,7 @@ const AddCampaign = () => {
                 <input
                   type="text"
                   name="title"
-                  placeholder="Enter Campaign Title"
+                  placeholder="The name of the campaign"
                   className="input input-bordered"
                   required
                 />
@@ -33,7 +33,7 @@ const AddCampaign = () => {
                 <input
                   type="text"
                   name="type"
-                  placeholder="Enter Campaign Type"
+                  placeholder="The type/category of the campaign"
                   className="input input-bordered"
                   required
                 />
@@ -46,21 +46,21 @@ const AddCampaign = () => {
                   <span className="label-text">Minimum Donation Amount</span>
                 </label>
                 <input
-                  type="text"
-                  name="amount"
-                  placeholder="Enter Minimum Donation Amount"
+                  type="number"
+                  name="minDonation"
+                  placeholder="Minimum donation amount required"
                   className="input input-bordered"
                   required
                 />
               </div>
               <div className="form-control flex-1">
                 <label className="label">
-                  <span className="label-text">Deadline</span>
+                  <span className="label-text">Donors</span>
                 </label>
                 <input
-                  type="text"
-                  name="deadline"
-                  placeholder="Enter Campaign Deadline"
+                  type="number"
+                  name="donors"
+                  placeholder="The number of people who have donated"
                   className="input input-bordered"
                   required
                 />
@@ -70,38 +70,65 @@ const AddCampaign = () => {
             <div className="flex flex-col lg:flex-row gap-5">
               <div className="form-control flex-1">
                 <label className="label">
-                  <span className="label-text">Category</span>
+                  <span className="label-text">Deadline</span>
                 </label>
                 <input
-                  type="text"
-                  name="category"
-                  placeholder="coffee Category"
+                  type="date"
+                  name="deadline"
+                  placeholder="Campaign deadline in MM-DD-YYYY format"
                   className="input input-bordered"
                   required
                 />
               </div>
               <div className="form-control flex-1">
                 <label className="label">
-                  <span className="label-text">Details</span>
+                  <span className="label-text">Description</span>
                 </label>
                 <input
                   type="text"
-                  name="details"
-                  placeholder="Coffee Details"
+                  name="description"
+                  placeholder="Detailed information about the campaign"
                   className="input input-bordered"
                   required
                 />
               </div>
             </div>
-
+            {/* form forth row */}
+            <div className="flex flex-col lg:flex-row gap-5">
+              <div className="form-control flex-1">
+                <label className="label">
+                  <span className="label-text">User Name</span>
+                </label>
+                <input
+                  type="text"
+                  name="userName"
+                  placeholder="The name of the campaign creator"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+              <div className="form-control flex-1">
+                <label className="label">
+                  <span className="label-text">User Email</span>
+                </label>
+                <input
+                  type="email"
+                  name="userEmail"
+                  placeholder="The email of the campaign creator"
+                  className="input input-bordered"
+                  required
+                />
+              </div>
+            </div>
+            {/* Photo URL Row */}
             <div className="form-control">
               <label className="label">
-                <span className="label-text">Photo URL</span>
+                <span className="label-text">Image</span>
               </label>
               <input
                 type="text"
-                name="photo"
-                placeholder="Photo url"
+                name="image"
+                placeholder="URL of the campaign image"
                 className="input input-bordered"
                 required
               />
