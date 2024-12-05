@@ -1,11 +1,45 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { RiGoogleFill } from "react-icons/ri";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
+    const { loginUser } = useContext(AuthContext);
+
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleLogin = (e) => {
+      e.preventDefault();
+
+      const email = e.target.email.value;
+      const password = e.target.password.value;
+
+      loginUser(email, password)
+        .then(result => {
+          console.log(result.user);
+
+          // Update User's Last Login Time
+          const lastSignInTime = result?.user?.metadata?.lastSignInTime;
+          const loginInfo = { email, lastSignInTime };
+
+          fetch(`http://localhost:5000/users`, {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json"
+            },
+            body: JSON.stringify(loginInfo)
+          })
+            .then(res => res.json())
+            .then(data => {
+              console.log("Login Info Updated to Database", data);
+            })
+        })
+        .catch(error => {
+          console.log("ERROR", error.message);
+        })
+    }
 
     return (
       <div className="min-h-screen flex justify-center items-center">
@@ -13,7 +47,7 @@ const Login = () => {
           <h2 className="text-2xl font-semibold text-[#403F3F] text-center pb-8 border-b-2">
             Login your account
           </h2>
-          <form className="card-body">
+          <form onSubmit={handleLogin} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Email address</span>
@@ -24,7 +58,6 @@ const Login = () => {
                 placeholder="Enter your email address"
                 className="input input-bordered"
                 required
-                // onChange={(e) => setEmail(e.target.value)} // Update email state on change
               />
             </div>
             <div className="form-control relative">

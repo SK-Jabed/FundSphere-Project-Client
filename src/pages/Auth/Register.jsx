@@ -4,6 +4,7 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { data, Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
 const Register = () => {
     const { createNewUser } = useContext(AuthContext);
@@ -18,13 +19,15 @@ const Register = () => {
       const password = e.target.password.value;
       const confirmPassword = e.target.confirmPassword.value;
 
-      const newUser = { name, email, photo, password, confirmPassword };
-
-      console.log(newUser);
-
+      console.log(name, email, photo, password, confirmPassword);
+   
       createNewUser(email, password)
         .then(result => {
-          console.log(result.user);
+        console.log(result.user);
+
+        const createdAt = result?.user?.metadata?.creationTime;
+        
+        const newUser = { name, email, photo, createdAt };
 
           // Save New User to The Database
           fetch("http://localhost:5000/users", {
@@ -32,11 +35,20 @@ const Register = () => {
             headers: {
               "content-type": "application/json"
             },
-            body: JSON.stringify()
+            body: JSON.stringify(newUser)
           })
             .then((res) => res.json())
             .then((data) => {
               console.log("New User Created to Database", data);
+              if (data.insertedId) {
+                Swal.fire({
+                  title: "Success!",
+                  text: "Registered Successfully",
+                  icon: "success",
+                  confirmButtonText: "Okay",
+                });
+              }
+              e.target.reset();
             });
         })
         .catch(error => {
