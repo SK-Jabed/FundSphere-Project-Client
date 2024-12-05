@@ -2,7 +2,7 @@ import React, { useContext, useState } from 'react';
 import { RiGoogleFill } from "react-icons/ri";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { data, Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
@@ -25,6 +25,19 @@ const Register = () => {
       createNewUser(email, password)
         .then(result => {
           console.log(result.user);
+
+          // Save New User to The Database
+          fetch("http://localhost:5000/users", {
+            method: "POST",
+            headers: {
+              "content-type": "application/json"
+            },
+            body: JSON.stringify()
+          })
+            .then((res) => res.json())
+            .then((data) => {
+              console.log("New User Created to Database", data);
+            });
         })
         .catch(error => {
           console.log("ERROR", error.message);
