@@ -6,9 +6,10 @@ import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-    const { loginUser } = useContext(AuthContext);
+    const { loginUser, signInWithGoogle, setUser } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState();
 
     const handleLogin = (e) => {
       e.preventDefault();

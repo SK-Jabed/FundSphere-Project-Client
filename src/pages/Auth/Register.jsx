@@ -2,13 +2,26 @@ import React, { useContext, useState } from 'react';
 import { RiGoogleFill } from "react-icons/ri";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import { data, Link } from 'react-router-dom';
+import { data, Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { createNewUser } = useContext(AuthContext);
+    const { user, setUser, createNewUser, signInWithGoogle } = useContext(AuthContext);
+    const navigate = useNavigate();
+
     const [showPassword, setShowPassword] = useState(false);
+    const [error, setError] = useState("");
+
+
+    const handleGoogleSignIn = () => {
+      signInWithGoogle()
+        .then((result) => {
+          setUser(result.user);
+          navigate("/");
+        })
+        .catch((error) => setError("ERROR", error.message));
+    };
 
     const handleRegister = (e) => {
       e.preventDefault();
@@ -18,8 +31,30 @@ const Register = () => {
       const photo = e.target.photo.value;
       const password = e.target.password.value;
       const confirmPassword = e.target.confirmPassword.value;
+      const terms = e.target.terms.checked;
 
       console.log(name, email, photo, password, confirmPassword);
+
+      if (password.length < 6) {
+        setError("Password must contain at least 6 characters");
+        return;
+      }
+      if (password !== confirmPassword) {
+        setError("Passwords didn't match");
+        return;
+      }
+      if (!/[a-z]/.test(password)) {
+        setError("Password must contain at least one lowercase letter");
+        return;
+      }
+      if (!/[A-Z]/.test(password)) {
+        setError("Password must contain at least one uppercase letter");
+        return;
+      }
+      if (!terms) {
+        setError("Please accept our terms and conditions");
+        return;
+      }
    
       createNewUser(email, password)
         .then(result => {
@@ -49,6 +84,7 @@ const Register = () => {
                 });
               }
               e.target.reset();
+              navigate("/");
             });
         })
         .catch(error => {
@@ -135,7 +171,7 @@ const Register = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </Link>
             </div>
-            {/* {error && <p className="font-semibold text-red-500">{error}</p>} */}
+            {error && <p className="font-semibold text-red-500">{error}</p>}
             <div className="form-control">
               <label className="label justify-start gap-2 cursor-pointer items-center">
                 <input
@@ -164,7 +200,7 @@ const Register = () => {
           <div>
             <div className="flex flex-col gap-2">
               <button
-                // onClick={handleGoogleSignIn}
+                onClick={handleGoogleSignIn}
                 className="btn text-[#403F3F] text-lg font-medium bg-white border-2 border-[#403F3F] hover:text-white hover:bg-[#403F3F] hover:border-none hover:shadow-lg"
               >
                 <RiGoogleFill />
