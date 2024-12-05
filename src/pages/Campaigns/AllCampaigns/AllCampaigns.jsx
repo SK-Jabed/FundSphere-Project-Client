@@ -1,5 +1,5 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { Link, useLoaderData } from 'react-router-dom';
 
 const AllCampaigns = () => {
     const allCampaigns = useLoaderData();
@@ -30,7 +30,7 @@ const AllCampaigns = () => {
                   <td>{campaign.minDonation}</td>
                   <td>{campaign.deadline}</td>
                   <td>
-                    <button className="btn">See More</button>
+                    <Link to={`/campaign/${campaign._id}`} className="btn">See More</Link>
                   </td>
                 </tr>
               ))}

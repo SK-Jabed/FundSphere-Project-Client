@@ -1,8 +1,9 @@
 import React from 'react';
-import { useLoaderData } from 'react-router-dom';
+import { useLoaderData, useNavigate } from 'react-router-dom';
 
 const RunningCampaigns = () => {
     const runningCampaigns = useLoaderData();
+    const navigate = useNavigate();
 
     return (
       <div className="p-4 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -27,7 +28,7 @@ const RunningCampaigns = () => {
               </p>
               <button
                 className="mt-4 bg-blue-500 text-white py-2 px-4 rounded"
-                // onClick={() => navigate(`/campaign/${campaign._id}`)} // Redirect to details page
+                onClick={() => navigate(`/campaign/${campaign._id}`)} 
               >
                 See More
               </button>
