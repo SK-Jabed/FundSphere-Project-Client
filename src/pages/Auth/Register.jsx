@@ -1,11 +1,35 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { RiGoogleFill } from "react-icons/ri";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provider/AuthProvider';
 
 const Register = () => {
+    const { createNewUser } = useContext(AuthContext);
     const [showPassword, setShowPassword] = useState(false);
+
+    const handleRegister = (e) => {
+      e.preventDefault();
+
+      const name = e.target.name.value;
+      const email = e.target.email.value;
+      const photo = e.target.photo.value;
+      const password = e.target.password.value;
+      const confirmPassword = e.target.confirmPassword.value;
+
+      const newUser = { name, email, photo, password, confirmPassword };
+
+      console.log(newUser);
+
+      createNewUser(email, password)
+        .then(result => {
+          console.log(result.user);
+        })
+        .catch(error => {
+          console.log("ERROR", error.message);
+        })
+    }
 
     return (
       <div className="min-h-screen flex justify-center items-center">
@@ -13,7 +37,7 @@ const Register = () => {
           <h2 className="text-2xl font-semibold text-[#403F3F] text-center pb-8 border-b-2">
             Register your account
           </h2>
-          <form className="card-body">
+          <form onSubmit={handleRegister} className="card-body">
             <div className="form-control">
               <label className="label">
                 <span className="label-text">Your Name</span>
