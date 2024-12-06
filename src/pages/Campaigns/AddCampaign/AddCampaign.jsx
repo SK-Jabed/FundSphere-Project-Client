@@ -1,7 +1,9 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import Swal from 'sweetalert2';
+import { AuthContext } from '../../../provider/AuthProvider';
 
 const AddCampaign = () => {
+    const { user } = useContext(AuthContext);
     const handleAddCampaign = (event) => {
       event.preventDefault();
 
@@ -153,9 +155,11 @@ const AddCampaign = () => {
                 <input
                   type="text"
                   name="userName"
+                  value={user.displayName}
                   placeholder="The name of the campaign creator"
                   className="input input-bordered"
                   required
+                  readOnly
                 />
               </div>
               <div className="form-control flex-1">
@@ -165,9 +169,11 @@ const AddCampaign = () => {
                 <input
                   type="email"
                   name="userEmail"
+                  value={user.email}
                   placeholder="The email of the campaign creator"
                   className="input input-bordered"
                   required
+                  readOnly
                 />
               </div>
             </div>
