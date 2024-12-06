@@ -1,10 +1,11 @@
 import React, { useContext } from 'react';
-import { useLoaderData, useParams } from 'react-router-dom';
+import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
 const UpdateCampaign = () => {
   const campaign = useLoaderData();
-  const { id } = useParams(); // Get campaign ID from URL
+  const { id } = useParams();
+  const navigate = useNavigate();
 
   const {
     title,
@@ -62,8 +63,8 @@ const UpdateCampaign = () => {
             icon: "success",
             confirmButtonText: "Okay",
           });
+          navigate("/myCampaigns");
         }
-        form.reset();
       });
   };
 

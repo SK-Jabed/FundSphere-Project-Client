@@ -29,7 +29,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/campaign/:id",
-        element: <CampaignDetails></CampaignDetails>,
+        element: (
+          <PrivateRoute>
+            <CampaignDetails></CampaignDetails>
+          </PrivateRoute>
+        ),
         loader: async ({ params }) => {
           const response = await fetch(
             `http://localhost:5000/campaign/${params.id}`
@@ -60,9 +64,8 @@ const router = createBrowserRouter([
             <UpdateCampaign></UpdateCampaign>
           </PrivateRoute>
         ),
-        loader: ({params}) => fetch(
-          `http://localhost:5000/campaigns/${params.id}`
-        ),
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/campaigns/${params.id}`),
       },
       {
         path: "/myDonations",
