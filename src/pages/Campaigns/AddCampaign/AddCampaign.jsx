@@ -4,6 +4,7 @@ import { AuthContext } from '../../../provider/AuthProvider';
 
 const AddCampaign = () => {
     const { user } = useContext(AuthContext);
+    
     const handleAddCampaign = (event) => {
       event.preventDefault();
 

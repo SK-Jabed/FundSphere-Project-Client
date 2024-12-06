@@ -2,6 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 // import { toast } from "react-toastify";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
+import { Link } from "react-router-dom";
 
 const MyCampaigns = () => {
   const { user } = useContext(AuthContext);
@@ -70,10 +71,7 @@ const MyCampaigns = () => {
      });
    };
 
-  const handleUpdate = (id) => {
-    // Navigate to an Update form with the campaign ID
-    window.location.href = `/updateCampaign/${id}`;
-  };
+
 
   return (
     <div className="p-4">
@@ -98,12 +96,11 @@ const MyCampaigns = () => {
                 ${campaign.minDonation}
               </td>
               <td className="border border-gray-300 p-2 flex gap-2">
-                <button
-                  onClick={() => handleUpdate(campaign._id)}
-                  className="bg-blue-500 text-white px-4 py-2 rounded"
-                >
-                  Update
-                </button>
+                <Link to={`/updateCampaign/${campaign._id}`}>
+                  <button className="bg-blue-500 text-white px-4 py-2 rounded">
+                    Update
+                  </button>
+                </Link>
                 <button
                   onClick={() => handleDelete(campaign._id)}
                   className="bg-red-500 text-white px-4 py-2 rounded"
