@@ -2,14 +2,27 @@ import React, { useContext, useState } from 'react';
 import { RiGoogleFill } from "react-icons/ri";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
-import { Link } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
 
 const Login = () => {
-    const { loginUser, signInWithGoogle, setUser } = useContext(AuthContext);
+    const { loginUser, signInWithGoogle, setUser, setEmail } = useContext(AuthContext);
 
     const [showPassword, setShowPassword] = useState(false);
     const [error, setError] = useState();
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleGoogleSignIn = () => {
+      signInWithGoogle()
+        .then((result) => {
+          setUser(result.user);
+          console.log(result.user);
+          navigate(location?.state ? location.state : "/");
+        })
+        .catch((error) => setError("ERROR", error.message));
+    };
 
     const handleLogin = (e) => {
       e.preventDefault();
@@ -17,9 +30,14 @@ const Login = () => {
       const email = e.target.email.value;
       const password = e.target.password.value;
 
+      setEmail(email); // Update the global email state
+
       loginUser(email, password)
         .then(result => {
-          console.log(result.user);
+          const user = result.user;
+          // setUser(user);
+          console.log(user);
+          navigate(location?.state ? location.state : "/");
 
           // Update User's Last Login Time
           const lastSignInTime = result?.user?.metadata?.lastSignInTime;
@@ -28,14 +46,14 @@ const Login = () => {
           fetch(`http://localhost:5000/users`, {
             method: "PATCH",
             headers: {
-              "Content-Type": "application/json"
+              "Content-Type": "application/json",
             },
-            body: JSON.stringify(loginInfo)
+            body: JSON.stringify(loginInfo),
           })
-            .then(res => res.json())
-            .then(data => {
+            .then((res) => res.json())
+            .then((data) => {
               console.log("Login Info Updated to Database", data);
-            })
+            });
         })
         .catch(error => {
           console.log("ERROR", error.message);
@@ -59,6 +77,7 @@ const Login = () => {
                 placeholder="Enter your email address"
                 className="input input-bordered"
                 required
+                onChange={(e) => setEmail(e.target.value)} // Update email state on change
               />
             </div>
             <div className="form-control relative">
@@ -79,18 +98,16 @@ const Login = () => {
                 {showPassword ? <FaEyeSlash /> : <FaEye />}
               </Link>
               <label className="label">
-                <Link
-                  className="label-text-alt link link-hover"
-                >
+                <Link className="label-text-alt link link-hover">
                   Forgot password?
                 </Link>
               </label>
             </div>
-            {/* {error && (
+            {error && (
               <label className="label text-base font-semibold text-red-600">
                 {error}
               </label>
-            )} */}
+            )}
             <div className="form-control">
               <button className="btn btn-neutral rounded-md text-white font-semibold text-base">
                 Login
@@ -107,7 +124,7 @@ const Login = () => {
           <div>
             <div className="flex flex-col gap-2">
               <button
-                // onClick={handleGoogleSignIn}
+                onClick={handleGoogleSignIn}
                 className="btn text-[#403F3F] text-lg font-medium bg-white border-2 border-[#403F3F] hover:text-white hover:bg-[#403F3F] hover:border-none hover:shadow-lg"
               >
                 <RiGoogleFill />

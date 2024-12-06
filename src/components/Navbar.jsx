@@ -2,10 +2,10 @@ import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import logo from "../../src/assets/logo-transparent-png.png";
-// import { authContext } from "../../provider/AuthProvider";
+import { AuthContext } from "../provider/AuthProvider";
 
 const Navbar = () => {
-//   const { user, logoutUser } = useContext(authContext);
+  const { user, logoutUser } = useContext(AuthContext);
 
   const navLinks = (
     <>
@@ -102,7 +102,7 @@ const Navbar = () => {
 
   return (
     <div className="h-32">
-      <div className="bg-[#24042d] z-50 fixed w-full border-b-2">
+      <div className="bg-white z-50 fixed w-full border-b-2">
         <div className="container w-11/12 mx-auto py-4">
           <div className="mx-auto flex justify-between items-center">
             <div className="dropdown lg:hidden relative ml-2">
@@ -122,11 +122,7 @@ const Navbar = () => {
               </ul>
             </div>
             <div className="flex items-center gap-1">
-              <img
-                className="w-60 h-24"
-                src={logo}
-                alt="Project Logo"
-              ></img>
+              <img className="w-60 h-24" src={logo} alt="Project Logo"></img>
               {/* <h2 className="text-2xl font-bold text-cyan-600 ml-4 md:ml-0">
                 WARMTH <span className="text-black">&</span>{" "}
                 <span className="text-sky-400">CARE</span>
@@ -138,26 +134,46 @@ const Navbar = () => {
               </ul>
             </div>
             <div>
-              <div className="flex flex-col lg:flex-row items-center gap-1">
-                <Link
-                  to={"/auth/login"}
-                  type="button"
-                  className="group flex h-14 w-36 items-center justify-center rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 p-[1.5px] text-white duration-300 hover:bg-gradient-to-l hover:shadow-2xl hover:shadow-purple-600/30"
-                >
-                  <div className="flex h-full w-full px-8  items-center justify-center rounded-lg bg-gray-900 transition duration-300 ease-in-out group-hover:bg-gradient-to-br group-hover:from-gray-700 group-hover:to-gray-900 group-hover:transition group-hover:duration-300 group-hover:ease-in-out text-lg font-semibold">
-                    Login
-                  </div>
-                </Link>
-                <Link
-                  to={"/auth/register"}
-                  type="button"
-                  className="group flex h-14 w-36 items-center justify-center rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 p-[1.5px] text-white duration-300 hover:bg-gradient-to-l hover:shadow-2xl hover:shadow-purple-600/30"
-                >
-                  <div className="flex h-full w-full px-8  items-center justify-center rounded-lg bg-gray-900 transition duration-300 ease-in-out group-hover:bg-gradient-to-br group-hover:from-gray-700 group-hover:to-gray-900 group-hover:transition group-hover:duration-300 group-hover:ease-in-out text-lg font-semibold">
-                    Register
-                  </div>
-                </Link>
-              </div>
+              {user && user?.email ? (
+                <div className="flex items-center gap-3">
+                  <img
+                    className="w-12 rounded-full"
+                    src={user?.photoURL}
+                    alt="User Image"
+                  />
+                  {/* <p>{user?.email}</p> */}
+                  <button
+                    onClick={logoutUser}
+                    type="button"
+                    className="group flex h-14 w-36 items-center justify-center rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 p-[1.5px] text-white duration-300 hover:bg-gradient-to-l hover:shadow-2xl hover:shadow-purple-600/30"
+                  >
+                    <div className="flex h-full w-full px-8  items-center justify-center rounded-lg bg-gray-900 transition duration-300 ease-in-out group-hover:bg-gradient-to-br group-hover:from-gray-700 group-hover:to-gray-900 group-hover:transition group-hover:duration-300 group-hover:ease-in-out text-lg font-semibold">
+                      Log out
+                    </div>
+                  </button>
+                </div>
+              ) : (
+                <div className="flex flex-col lg:flex-row items-center gap-1">
+                  <Link
+                    to={"/auth/login"}
+                    type="button"
+                    className="group flex h-14 w-36 items-center justify-center rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 p-[1.5px] text-white duration-300 hover:bg-gradient-to-l hover:shadow-2xl hover:shadow-purple-600/30"
+                  >
+                    <div className="flex h-full w-full px-8  items-center justify-center rounded-lg bg-gray-900 transition duration-300 ease-in-out group-hover:bg-gradient-to-br group-hover:from-gray-700 group-hover:to-gray-900 group-hover:transition group-hover:duration-300 group-hover:ease-in-out text-lg font-semibold">
+                      Login
+                    </div>
+                  </Link>
+                  <Link
+                    to={"/auth/register"}
+                    type="button"
+                    className="group flex h-14 w-36 items-center justify-center rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 p-[1.5px] text-white duration-300 hover:bg-gradient-to-l hover:shadow-2xl hover:shadow-purple-600/30"
+                  >
+                    <div className="flex h-full w-full px-8  items-center justify-center rounded-lg bg-gray-900 transition duration-300 ease-in-out group-hover:bg-gradient-to-br group-hover:from-gray-700 group-hover:to-gray-900 group-hover:transition group-hover:duration-300 group-hover:ease-in-out text-lg font-semibold">
+                      Register
+                    </div>
+                  </Link>
+                </div>
+              )}
             </div>
           </div>
         </div>
