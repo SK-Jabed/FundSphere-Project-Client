@@ -1,8 +1,69 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useLoaderData } from 'react-router-dom';
+import { AuthContext } from '../../../provider/AuthProvider';
+import Swal from 'sweetalert2';
 
-const CampaignDetails = () => {
+const CampaignDetails = async () => {
     const campaign = useLoaderData();
+    // console.log(campaign);
+    const { user } = useContext(AuthContext);
+
+    const handleDonate = async () => {
+      const currentDate = new Date();
+      const campaignDeadline = new Date(campaign.deadline);
+
+      // Check if the deadline is over
+      if (currentDate > campaignDeadline) {
+        // toast.error("This campaign's deadline has passed. You cannot donate.");
+        // return;
+        Swal.fire({
+          icon: "error",
+          title: "Oops, Something went wrong!",
+          text: "This campaign's deadline has passed. You cannot donate.",
+        });
+      }
+
+      const donationData = {
+        campaignId: campaign._id,
+        title: campaign.title,
+        userEmail: user.email,
+        userName: user.displayName,
+        donatedAt: new Date().toISOString(),
+      };
+
+      try {
+        const response = await fetch("http://localhost:5000/donations", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify(donationData),
+        });
+
+        if (response.ok) {
+          // toast.success("Thank you for your donation!");
+          Swal.fire({
+            title: "Success!",
+            text: "Thank you for your donation!",
+            icon: "success",
+            confirmButtonText: "Okay",
+          });
+        } else {
+          // toast.error("Failed to donate. Please try again.");
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: " Failed to donate. Please try again.",
+          });
+        }
+      } catch (error) {
+        console.error("Error donating:", error);
+        // toast.error("Failed to donate. Please try again.");
+        Swal.fire({
+          icon: "error",
+          title: "Oops...",
+          text: " Failed to donate. Please try again.",
+        });
+      }
+    };
 
     return (
       <div className="p-4">
@@ -18,7 +79,9 @@ const CampaignDetails = () => {
         <p>Donors: {campaign.donors}</p>
         <p className="mt-2">Hosted by: {campaign.userName}</p>
         <p>Email: {campaign.userEmail}</p>
-        <button className='btn'>Donate</button>
+        <button onClick={handleDonate} className="btn">
+          Donate
+        </button>
       </div>
     );
 };
