@@ -9,6 +9,7 @@ import AuthLayout from "../layouts/AuthLayout";
 import Login from "../pages/Auth/Login";
 import Register from "../pages/Auth/Register";
 import CampaignDetails from "../pages/Campaigns/CampaignDetails/CampaignDetails";
+import PrivateRoute from "./PrivateRoute";
 
 const router = createBrowserRouter([
   {
@@ -29,8 +30,10 @@ const router = createBrowserRouter([
         path: "/campaign/:id",
         element: <CampaignDetails></CampaignDetails>,
         loader: async ({ params }) => {
-        const response = await fetch(`http://localhost:5000/campaign/${params.id}`);
-        return response.json();
+          const response = await fetch(
+            `http://localhost:5000/campaign/${params.id}`
+          );
+          return response.json();
         },
       },
       {
@@ -39,11 +42,19 @@ const router = createBrowserRouter([
       },
       {
         path: "/myCampaigns",
-        element: <MyCampaigns></MyCampaigns>,
+        element: (
+          <PrivateRoute>
+            <MyCampaigns></MyCampaigns>
+          </PrivateRoute>
+        ),
       },
       {
         path: "/myDonations",
-        element: <MyDonations></MyDonations>,
+        element: (
+          <PrivateRoute>
+            <MyDonations></MyDonations>
+          </PrivateRoute>
+        ),
       },
     ],
   },
