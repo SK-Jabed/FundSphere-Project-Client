@@ -34,12 +34,14 @@ const router = createBrowserRouter([
             <CampaignDetails></CampaignDetails>
           </PrivateRoute>
         ),
-        loader: async ({ params }) => {
-          const response = await fetch(
-            `http://localhost:5000/campaign/${params.id}`
-          );
-          return response.json();
-        },
+        // loader: async ({ params }) => {
+        //   const response = await fetch(
+        //     `http://localhost:5000/campaign/${params.id}`
+        //   );
+        //   return response.json();
+        // },
+        loader: ({ params }) =>
+          fetch(`http://localhost:5000/campaign/${params.id}`),
       },
       {
         path: "/addCampaign",

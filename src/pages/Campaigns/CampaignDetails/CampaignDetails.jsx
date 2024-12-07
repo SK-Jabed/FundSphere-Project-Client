@@ -3,8 +3,10 @@ import { useLoaderData } from 'react-router-dom';
 import { AuthContext } from '../../../provider/AuthProvider';
 import Swal from 'sweetalert2';
 
-const CampaignDetails = async () => {
+const CampaignDetails = () => {
+    // const campaign = useLoaderData();
     const campaign = useLoaderData();
+    console.log(campaign);
     // console.log(campaign);
     const { user } = useContext(AuthContext);
 
@@ -21,6 +23,7 @@ const CampaignDetails = async () => {
           title: "Oops, Something went wrong!",
           text: "This campaign's deadline has passed. You cannot donate.",
         });
+        return;
       }
 
       const donationData = {
