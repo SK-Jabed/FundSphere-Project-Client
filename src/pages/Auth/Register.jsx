@@ -18,6 +18,12 @@ const Register = () => {
       signInWithGoogle()
         .then((result) => {
           setUser(result.user);
+          Swal.fire({
+            title: "Success!",
+            text: "Registered Successfully!",
+            icon: "success",
+            confirmButtonText: "Okay",
+          });
           navigate("/");
         })
         .catch((error) => setError("ERROR", error.message));
@@ -78,7 +84,7 @@ const Register = () => {
               if (data.insertedId) {
                 Swal.fire({
                   title: "Success!",
-                  text: "Registered Successfully",
+                  text: "Registered Successfully!",
                   icon: "success",
                   confirmButtonText: "Okay",
                 });

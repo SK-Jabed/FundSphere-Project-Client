@@ -11,6 +11,7 @@ import Register from "../pages/Auth/Register";
 import CampaignDetails from "../pages/Campaigns/CampaignDetails/CampaignDetails";
 import PrivateRoute from "./PrivateRoute";
 import UpdateCampaign from "../pages/Campaigns/UpdateCampaign/UpdateCampaign";
+import NotFound from "../pages/NotFound/NotFound";
 
 const router = createBrowserRouter([
   {
@@ -92,6 +93,10 @@ const router = createBrowserRouter([
         element: <Register></Register>,
       },
     ],
+  },
+  {
+    path: "*",
+    element: <NotFound></NotFound>,
   },
 ]);
 

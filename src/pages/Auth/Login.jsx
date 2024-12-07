@@ -4,6 +4,8 @@ import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provider/AuthProvider';
+import Swal from 'sweetalert2';
+import { toast } from 'react-toastify';
 
 const Login = () => {
     const { loginUser, signInWithGoogle, setUser, setEmail } = useContext(AuthContext);
@@ -19,7 +21,9 @@ const Login = () => {
         .then((result) => {
           setUser(result.user);
           console.log(result.user);
+          toast.success("Login Successfully!");
           navigate(location?.state ? location.state : "/");
+          
         })
         .catch((error) => setError("ERROR", error.message));
     };
@@ -53,10 +57,16 @@ const Login = () => {
             .then((res) => res.json())
             .then((data) => {
               console.log("Login Info Updated to Database", data);
+              toast.success("Login Successfully!");
             });
         })
         .catch(error => {
           console.log("ERROR", error.message);
+          Swal.fire({
+            icon: "error",
+            title: "Oops, Something went wrong!",
+            text: "Email or Password doesn’t match with the registered email and password.",
+          });
         })
     }
 

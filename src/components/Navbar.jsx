@@ -137,9 +137,10 @@ const Navbar = () => {
               {user && user?.email ? (
                 <div className="flex items-center gap-3">
                   <img
-                    className="w-12 rounded-full"
+                    className="w-16 rounded-full"
                     src={user?.photoURL}
                     alt="User Image"
+                    title={user?.displayName}                    
                   />
                   {/* <p>{user?.email}</p> */}
                   <button
