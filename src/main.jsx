@@ -6,12 +6,16 @@ import router from './routes/Router';
 import AuthProvider from './provider/AuthProvider';
 import { ToastContainer } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import ThemeProvider from './provider/ThemeContext';
+// import { ThemeProvider } from './provider/ThemeContext';
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <AuthProvider>
-      <RouterProvider router={router} />
-    </AuthProvider>
+    <ThemeProvider>
+      <AuthProvider>
+        <RouterProvider router={router} />
+      </AuthProvider>
+    </ThemeProvider>
 
     <ToastContainer
       position="top-center"

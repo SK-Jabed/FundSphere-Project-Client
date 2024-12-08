@@ -3,6 +3,7 @@ import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
 import logo from "../../src/assets/logo-transparent-png.png";
 import { AuthContext } from "../provider/AuthProvider";
+import ThemeToggleButton from "./ThemeToggleButton";
 
 const Navbar = () => {
   const { user, logoutUser } = useContext(AuthContext);
@@ -102,7 +103,7 @@ const Navbar = () => {
 
   return (
     <div className="h-32">
-      <div className="bg-white z-50 fixed w-full border-b-2">
+      <div className=" dark:bg-gray-900 z-50 fixed w-full">
         <div className="container w-11/12 mx-auto py-4">
           <div className="mx-auto flex justify-between items-center">
             <div className="dropdown lg:hidden relative ml-2">
@@ -140,7 +141,7 @@ const Navbar = () => {
                     className="w-16 rounded-full"
                     src={user?.photoURL}
                     alt="User Image"
-                    title={user?.displayName}                    
+                    title={user?.displayName}
                   />
                   {/* <p>{user?.email}</p> */}
                   <button
@@ -175,6 +176,7 @@ const Navbar = () => {
                   </Link>
                 </div>
               )}
+              <ThemeToggleButton></ThemeToggleButton>
             </div>
           </div>
         </div>

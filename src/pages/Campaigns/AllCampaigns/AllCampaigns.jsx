@@ -98,7 +98,7 @@ const AllCampaigns = () => {
   return (
     <div>
       <div className="flex justify-between items-center w-11/12 mx-auto mb-4">
-        <h1 className="text-2xl font-bold">
+        <h1 className="text-2xl font-bold text-blue-500 dark:text-white">
           All Campaigns: {campaigns.length}
         </h1>
         <button onClick={handleSort} className="btn btn-primary">
