@@ -12,8 +12,7 @@ const Footer = () => {
           <div className="left-side-content flex flex-col gap-2 items-start">
             <a class="flex items-center gap-2">
               <span class="text-2xl md:text-3xl font-extrabold text-white">
-                WARMTH <span className="text-teal-400">&</span>{" "}
-                <span className="text-sky-400">CARE</span>
+                Fund<span className="text-sky-400">Sphere</span>
               </span>
             </a>
             <div class="info flex flex-col gap-2">
@@ -52,17 +51,22 @@ const Footer = () => {
               </li>
               <li>
                 <a className="hover:text-white text-gray-500 hover:font-medium cursor-pointer">
-                  Donation Campaigns
+                  All Campaigns
                 </a>
               </li>
               <li>
                 <a className="hover:text-white text-gray-500 hover:font-medium cursor-pointer">
-                  How to Help
+                  Add Campaign
                 </a>
               </li>
               <li>
                 <a className="hover:text-white text-gray-500 hover:font-medium cursor-pointer">
-                  Dashboard
+                  My Campaign
+                </a>
+              </li>
+              <li>
+                <a className="hover:text-white text-gray-500 hover:font-medium cursor-pointer">
+                  My Donations
                 </a>
               </li>
             </ul>
@@ -101,8 +105,8 @@ const Footer = () => {
         <hr></hr>
         <div className="mt-4 text-center text-gray-500 pb-6">
           <p>
-            © {new Date().getFullYear()} WARMTH & CARE - Winter Clothing
-            Donation Platform. All rights reserved.
+            © {new Date().getFullYear()} FundSphere - A Crowd Funding
+            Application. All rights reserved.
           </p>
         </div>
       </div>

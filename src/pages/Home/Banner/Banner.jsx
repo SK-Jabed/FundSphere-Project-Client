@@ -12,36 +12,36 @@ const Banner = () => {
   const slides = [
     {
       id: 1,
-      image: "https://i.ibb.co.com/jJX4dTz/donate-items.jpg",
-      title: "Warm Winter Donations",
+      image: "https://i.ibb.co.com/P5BsK0K/Banner-1.webp",
+      title: "Empower Your Vision",
       description:
-        "Winter is a season of joy and togetherness, but for many, it can also be a time of struggle and hardship. As the temperatures drop, face the harsh cold without the basic necessities to stay warm. The Warm Winter Donations initiative aims to bridge this gap by providing a platform for compassionate individuals to donate winter essentials, bringing comfort and hope to those in need.",
+        "Every great idea starts with a spark of inspiration, but to make it a reality, you need support. FundSphere is your trusted partner in transforming dreams into achievements. Launch your crowdfunding campaign and connect with a global community of backers who believe in your vision. Start your journey with us today and watch your vision come to life!",
     },
     {
       id: 2,
-      image: "https://i.ibb.co.com/yW5qLbK/blankets-to-donate-jpg.webp",
-      title: "Share the Warmth",
+      image: "https://i.ibb.co.com/N3N9hPY/banner-2.webp",
+      title: "Together, We Make a Difference",
       description:
-        "As the frosty chill of winter settles in, many of us are fortunate to enjoy the warmth of cozy sweaters, blankets, and heated homes. However, for countless individuals insufficient resources to stay warm. Share the Warmth is more than just a campaign—it’s a heartfelt call to action, inviting everyone to make a tangible difference in the lives of those facing the harsh realities of winter.",
+        "Imagine a world where every idea, big or small, gets the chance it deserves.  is more than just a platform; it's a movement where individuals unite to bring meaningful projects to life. From supporting social causes and community initiatives to funding innovative technologies. Join us today and discover how your involvement can make dreams come true and leave a lasting impact on the world.",
     },
     {
       id: 3,
-      image: "https://i.ibb.co.com/5WfwpFP/clothing.webp",
-      title: "Support Local Drives",
+      image: "https://i.ibb.co.com/ZzQrz5w/banner-3.jpg",
+      title: "Fuel Innovation, Inspire Change",
       description:
-        "Winter is a time when the power of community becomes most evident. Support Local Drives is an initiative designed to inspire neighborhoods, workplaces, schools, and organizations to come together for a common purpose: ensuring no one in our community faces the cold alone. When you support these initiatives, you’re not just donating clothes.",
+        "Innovation is the heartbeat of progress, but even the brightest ideas need a strong foundation of support. At FundSphere, we champion creators, entrepreneurs, and visionaries by providing a platform where ideas can take flight. Together, we can drive change, spark innovation, and inspire the world to move forward.",
     },
     {
       id: 4,
-      image: "https://i.ibb.co.com/GQcRTTK/clothes.jpg",
-      title: "Volunteer to Help",
+      image: "https://i.ibb.co.com/7N8Cmz9/Banner-4.jpg",
+      title: "Your Cause, Our Platform",
       description:
-        "When you choose to volunteer, you’re not just offering your time—you’re offering hope, compassion, and a helping hand to those who need it most. The Volunteer to Help initiative invites individuals from all walks of life to join forces in delivering winter essentials to vulnerable communities. Volunteering is more than an act of kindness.",
+        "Every story deserves to be told, and every cause deserves to be supported. At Crowdcube, we empower you to share your passion and raise funds for what truly matters. From humanitarian efforts and educational projects to personal aspirations and small businesses. Your cause is our mission—let’s make it happen together.",
     },
   ];
 
   return (
-    <div className="bg-gray-50 container w-11/12 mx-auto mt-6 ">
+    <div className="container w-11/12 mx-auto pt-6 lg:pt-10">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}

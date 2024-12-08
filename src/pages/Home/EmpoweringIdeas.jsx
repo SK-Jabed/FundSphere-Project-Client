@@ -58,24 +58,24 @@ const ideas = [
   {
     title: "Innovative Startups",
     description: "Support unique and groundbreaking business ideas.",
-    image: "/images/idea1.jpg",
+    image: "https://i.ibb.co.com/crcK9XB/rc-6.webp",
   },
   {
     title: "Community Projects",
     description: "Empowering communities through targeted initiatives.",
-    image: "/images/idea2.jpg",
+    image: "https://i.ibb.co.com/2hW3Pbq/rc-5.jpg",
   },
   {
     title: "Creative Arts",
     description: "Fostering artistic talent and cultural projects.",
-    image: "/images/idea3.jpg",
+    image: "https://i.ibb.co.com/qxGp5Jy/rc-3.jpg",
   },
 ];
 
 const EmpoweringIdeas = () => {
   return (
-    <div className="py-10 bg-gray-100">
-      <h2 className="text-4xl font-bold text-center mb-4">
+    <div className="py-10 bg-gray-100 dark:bg-black">
+      <h2 className="text-4xl font-bold text-center dark:text-white mb-4">
         <Typewriter
           words={[
             "Empowering Ideas That Change Lives!",

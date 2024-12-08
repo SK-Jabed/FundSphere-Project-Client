@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
-import logo from "../../src/assets/logo-transparent-png.png";
+import logo from "../../src/assets/logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 import ThemeToggleButton from "./ThemeToggleButton";
 
@@ -15,7 +15,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-lg font-bold text-cyan-400 underline"
-              : "text-lg font-medium text-gray-800 hover:text-bg-cyan-400"
+              : "text-lg font-medium text-gray-800 hover:text-cyan-400 dark:text-white"
           }
           to={"/"}
         >
@@ -27,7 +27,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-lg font-bold text-cyan-400 underline"
-              : "text-lg font-medium text-gray-800 hover:text-cyan-400"
+              : "text-lg font-medium text-gray-800 hover:text-cyan-400 dark:text-white"
           }
           to={"/campaigns"}
         >
@@ -39,7 +39,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-lg font-bold text-cyan-400 underline"
-              : "text-lg font-medium text-gray-800 hover:text-cyan-400"
+              : "text-lg font-medium text-gray-800 hover:text-cyan-400 dark:text-white"
           }
           to={"/addCampaign"}
         >
@@ -51,7 +51,7 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-lg font-bold text-cyan-400 underline"
-              : "text-lg font-medium text-gray-800 hover:text-cyan-400"
+              : "text-lg font-medium text-gray-800 hover:text-cyan-400 dark:text-white"
           }
           to={"/myCampaigns"}
         >
@@ -63,47 +63,19 @@ const Navbar = () => {
           className={({ isActive }) =>
             isActive
               ? "text-lg font-bold text-cyan-400 underline"
-              : "text-lg font-medium text-gray-800 hover:text-cyan-400"
+              : "text-lg font-medium text-gray-800 hover:text-cyan-400 dark:text-white"
           }
           to={"/myDonations"}
         >
           My Donations
         </NavLink>
       </li>
-      {/* {user && user?.email && (
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "text-lg font-bold text-cyan-400 underline"
-                : "text-lg font-medium text-gray-800 hover:text-cyan-400"
-            }
-            to={"/dashboard"}
-          >
-            Dashboard
-          </NavLink>
-        </li>
-      )} */}
-      {/* {!user && !user?.email && (
-        <li>
-          <NavLink
-            className={({ isActive }) =>
-              isActive
-                ? "text-lg text-bold text-cyan-400 underline"
-                : "text-lg font-medium text-gray-800 hover:text-white"
-            }
-            to={"/auth/register"}
-          >
-            Register
-          </NavLink>
-        </li>
-      )} */}
     </>
   );
 
   return (
-    <div className="h-32">
-      <div className=" dark:bg-gray-900 z-50 fixed w-full">
+    <div className="h-20">
+      <div className=" dark:bg-black bg-white w-full z-50 fixed">
         <div className="container w-11/12 mx-auto py-4">
           <div className="mx-auto flex justify-between items-center">
             <div className="dropdown lg:hidden relative ml-2">
@@ -123,10 +95,9 @@ const Navbar = () => {
               </ul>
             </div>
             <div className="flex items-center gap-1">
-              <img className="w-60 h-24" src={logo} alt="Project Logo"></img>
-              {/* <h2 className="text-2xl font-bold text-cyan-600 ml-4 md:ml-0">
-                WARMTH <span className="text-black">&</span>{" "}
-                <span className="text-sky-400">CARE</span>
+              <img className="w-26 h-20 hidden md:block" src={logo} alt="Project Logo"></img>
+              {/* <h2 className="text-3xl hidden lg:flex italic font-bold text-cyan-600 ml-4 md:ml-0">
+                Fund<span className="text-sky-400">Sphere</span>
               </h2> */}
             </div>
             <div className="">
@@ -136,14 +107,13 @@ const Navbar = () => {
             </div>
             <div>
               {user && user?.email ? (
-                <div className="flex items-center gap-3">
+                <div className="flex items-center lg:gap-3">
                   <img
                     className="w-16 rounded-full"
                     src={user?.photoURL}
                     alt="User Image"
                     title={user?.displayName}
                   />
-                  {/* <p>{user?.email}</p> */}
                   <button
                     onClick={logoutUser}
                     type="button"
@@ -153,9 +123,10 @@ const Navbar = () => {
                       Log out
                     </div>
                   </button>
+                  <ThemeToggleButton></ThemeToggleButton>
                 </div>
               ) : (
-                <div className="flex flex-col lg:flex-row items-center gap-1">
+                <div className="flex items-center gap-1">
                   <Link
                     to={"/auth/login"}
                     type="button"
@@ -174,9 +145,9 @@ const Navbar = () => {
                       Register
                     </div>
                   </Link>
+                  <ThemeToggleButton></ThemeToggleButton>
                 </div>
               )}
-              <ThemeToggleButton></ThemeToggleButton>
             </div>
           </div>
         </div>

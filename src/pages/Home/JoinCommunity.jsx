@@ -27,7 +27,7 @@ import { Typewriter } from "react-simple-typewriter";
 
 const JoinCommunity = () => {
   return (
-    <div className="py-10 bg-gradient-to-r from-teal-400 to-cyan-600 text-white text-center">
+    <div className="py-10 mt-12 bg-gradient-to-r from-teal-400 to-cyan-600 text-white text-center">
       <h2 className="text-4xl font-bold mb-6">
         <Typewriter
           words={["Join Our Community", "Make a Difference Today"]}
