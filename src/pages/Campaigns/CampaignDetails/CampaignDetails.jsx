@@ -71,11 +71,11 @@ const CampaignDetails = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 my-16">
       <img
         src={campaign.image}
         alt={campaign.title}
-        className="w-full h-72 object-cover rounded-md"
+        className="w-full h-[450px] object-cover rounded-md"
       />
       <h1 className="text-2xl font-bold mt-4">{campaign.title}</h1>
       <p className="text-sm text-gray-500 mt-2">{campaign.description}</p>

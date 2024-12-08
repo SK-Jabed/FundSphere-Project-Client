@@ -90,8 +90,8 @@ const AllCampaigns = () => {
 
   return (
     <div>
-      <div className="flex justify-between items-center w-11/12 mx-auto mb-4">
-        <h1 className="text-2xl font-bold text-blue-500 dark:text-white">
+      <div className="flex justify-between items-center w-11/12 mx-auto mb-4 my-16">
+        <h1 className="text-2xl font-bold text-black dark:text-white">
           All Campaigns: {campaigns.length}
         </h1>
         <button onClick={handleSort} className="btn btn-primary">
@@ -99,7 +99,7 @@ const AllCampaigns = () => {
           {sortOrder === "asc" ? "Ascending" : "Descending"})
         </button>
       </div>
-      <div className="overflow-x-auto w-11/12 mx-auto">
+      <div className="overflow-x-auto w-11/12 mx-auto mb-12">
         <table className="table table-zebra">
           <thead>
             <tr>

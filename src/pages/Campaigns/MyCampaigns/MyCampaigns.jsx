@@ -24,22 +24,6 @@ const MyCampaigns = () => {
     fetchCampaigns();
   }, [user.email]);
 
-  //   const handleDelete = async (id) => {
-  //     if (window.confirm("Are you sure you want to delete this campaign?")) {
-  //       try {
-  //         const response = await fetch(`https://b10-assignment-10-server.vercel.app/campaigns/${id}`, {
-  //           method: "DELETE",
-  //         });
-  //         if (response.ok) {
-  //           toast.success("Campaign deleted successfully!");
-  //           setCampaigns(campaigns.filter((campaign) => campaign._id !== id));
-  //         }
-  //       } catch (error) {
-  //         toast.error("Failed to delete campaign");
-  //         console.error(error);
-  //       }
-  //     }
-  //   };
 
   const handleDelete = (_id) => {
     Swal.fire({
@@ -74,7 +58,7 @@ const MyCampaigns = () => {
   };
 
   return (
-    <div className="p-4">
+    <div className="p-4 my-14">
       <h1 className="text-2xl font-bold mb-4">My Campaigns</h1>
       <table className="w-full border-collapse border border-gray-300">
         <thead>

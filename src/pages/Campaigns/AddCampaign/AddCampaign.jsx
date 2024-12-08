@@ -56,7 +56,7 @@ const AddCampaign = () => {
   };
 
   return (
-    <div className="lg:w-3/4 mx-auto my-12">
+    <div className="lg:w-3/4 mx-auto my-16">
       <div className="card bg-[#F4F3F0] w-full shrink-0 shadow-2xl">
         <div className="flex flex-col mx-auto text-center pt-8">
           <h1 className="text-4xl font-bold">Add New Campaign</h1>
