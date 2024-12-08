@@ -4,7 +4,7 @@
 // const AllCampaigns = () => {
 //     const allCampaigns = useLoaderData();
 
-//     const [sortOrder, setSortOrder] = useState("asc"); 
+//     const [sortOrder, setSortOrder] = useState("asc");
 
 //     const handleSort = async () => {
 //       const newSortOrder = sortOrder === "asc" ? "desc" : "asc";
@@ -12,7 +12,7 @@
 
 //       try {
 //         const response = await fetch(
-//           `http://localhost:5000/campaigns?sort=${newSortOrder}`
+//           `https://b10-assignment-10-server.vercel.app/campaigns?sort=${newSortOrder}`
 //         );
 //         const data = await response.json();
 //         setCampaigns(data);
@@ -20,7 +20,6 @@
 //         console.error("Error fetching sorted campaigns:", error);
 //       }
 //     };
-
 
 //     return (
 //       <div>
@@ -66,12 +65,6 @@
 // };
 
 // export default AllCampaigns;
-
-
-
-
-
-
 
 import React, { useState } from "react";
 import { Link, useLoaderData } from "react-router-dom";

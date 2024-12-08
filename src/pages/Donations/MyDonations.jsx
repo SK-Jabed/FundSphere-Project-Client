@@ -9,7 +9,7 @@ const MyDonations = () => {
     const fetchDonations = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/myDonations?email=${user.email}`
+          `https://b10-assignment-10-server.vercel.app/myDonations?email=${user.email}`
         );
         const data = await response.json();
         setDonations(data);

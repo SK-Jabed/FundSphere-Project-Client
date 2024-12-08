@@ -21,12 +21,14 @@ const router = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/runningCampaigns"),
+        loader: () =>
+          fetch("https://b10-assignment-10-server.vercel.app/runningCampaigns"),
       },
       {
         path: "/campaigns",
         element: <AllCampaigns></AllCampaigns>,
-        loader: () => fetch("http://localhost:5000/campaigns"),
+        loader: () =>
+          fetch("https://b10-assignment-10-server.vercel.app/campaigns"),
       },
       {
         path: "/campaign/:id",
@@ -37,12 +39,14 @@ const router = createBrowserRouter([
         ),
         // loader: async ({ params }) => {
         //   const response = await fetch(
-        //     `http://localhost:5000/campaign/${params.id}`
+        //     `https://b10-assignment-10-server.vercel.app/campaign/${params.id}`
         //   );
         //   return response.json();
         // },
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campaign/${params.id}`),
+          fetch(
+            `https://b10-assignment-10-server.vercel.app/campaign/${params.id}`
+          ),
       },
       {
         path: "/addCampaign",
@@ -68,7 +72,9 @@ const router = createBrowserRouter([
           </PrivateRoute>
         ),
         loader: ({ params }) =>
-          fetch(`http://localhost:5000/campaigns/${params.id}`),
+          fetch(
+            `https://b10-assignment-10-server.vercel.app/campaigns/${params.id}`
+          ),
       },
       {
         path: "/myDonations",

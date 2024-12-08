@@ -1,6 +1,6 @@
-import React, { useContext } from 'react';
-import { useLoaderData, useNavigate, useParams } from 'react-router-dom';
-import Swal from 'sweetalert2';
+import React, { useContext } from "react";
+import { useLoaderData, useNavigate, useParams } from "react-router-dom";
+import Swal from "sweetalert2";
 
 const UpdateCampaign = () => {
   const campaign = useLoaderData();
@@ -46,7 +46,7 @@ const UpdateCampaign = () => {
     };
 
     // Send New Campaign Data to The Server
-    fetch(`http://localhost:5000/campaigns/${id}`, {
+    fetch(`https://b10-assignment-10-server.vercel.app/campaigns/${id}`, {
       method: "PATCH",
       headers: {
         "content-type": "application/json",

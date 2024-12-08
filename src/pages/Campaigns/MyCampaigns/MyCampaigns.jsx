@@ -12,7 +12,7 @@ const MyCampaigns = () => {
     const fetchCampaigns = async () => {
       try {
         const response = await fetch(
-          `http://localhost:5000/myCampaigns?email=${user.email}`
+          `https://b10-assignment-10-server.vercel.app/myCampaigns?email=${user.email}`
         );
         const data = await response.json();
         setCampaigns(data);
@@ -24,54 +24,54 @@ const MyCampaigns = () => {
     fetchCampaigns();
   }, [user.email]);
 
-//   const handleDelete = async (id) => {
-//     if (window.confirm("Are you sure you want to delete this campaign?")) {
-//       try {
-//         const response = await fetch(`http://localhost:5000/campaigns/${id}`, {
-//           method: "DELETE",
-//         });
-//         if (response.ok) {
-//           toast.success("Campaign deleted successfully!");
-//           setCampaigns(campaigns.filter((campaign) => campaign._id !== id));
-//         }
-//       } catch (error) {
-//         toast.error("Failed to delete campaign");
-//         console.error(error);
-//       }
-//     }
-//   };
+  //   const handleDelete = async (id) => {
+  //     if (window.confirm("Are you sure you want to delete this campaign?")) {
+  //       try {
+  //         const response = await fetch(`https://b10-assignment-10-server.vercel.app/campaigns/${id}`, {
+  //           method: "DELETE",
+  //         });
+  //         if (response.ok) {
+  //           toast.success("Campaign deleted successfully!");
+  //           setCampaigns(campaigns.filter((campaign) => campaign._id !== id));
+  //         }
+  //       } catch (error) {
+  //         toast.error("Failed to delete campaign");
+  //         console.error(error);
+  //       }
+  //     }
+  //   };
 
-   const handleDelete = (_id) => {
-     Swal.fire({
-       title: "Are you sure?",
-       text: "You won't be able to revert this!",
-       icon: "warning",
-       showCancelButton: true,
-       confirmButtonColor: "#3085d6",
-       cancelButtonColor: "#d33",
-       confirmButtonText: "Yes, delete it!",
-     }).then((result) => {
-       if (result.isConfirmed) {
-         fetch(`http://localhost:5000/campaigns/${_id}`, {
-           method: "DELETE",
-         })
-           .then((res) => res.json())
-           .then((data) => {
-             if (data.deletedCount > 0) {
-               Swal.fire({
-                 title: "Deleted!",
-                 text: "Your Coffee has been deleted.",
-                 icon: "success",
-               });
-               const remaining = campaigns.filter((campaign) => campaign._id !== _id);
-               setCampaigns(remaining);
-             }
-           });
-       }
-     });
-   };
-
-
+  const handleDelete = (_id) => {
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        fetch(`https://b10-assignment-10-server.vercel.app/campaigns/${_id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            if (data.deletedCount > 0) {
+              Swal.fire({
+                title: "Deleted!",
+                text: "Your Coffee has been deleted.",
+                icon: "success",
+              });
+              const remaining = campaigns.filter(
+                (campaign) => campaign._id !== _id
+              );
+              setCampaigns(remaining);
+            }
+          });
+      }
+    });
+  };
 
   return (
     <div className="p-4">
