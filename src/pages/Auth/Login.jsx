@@ -20,7 +20,6 @@ const Login = () => {
       signInWithGoogle()
         .then((result) => {
           setUser(result.user);
-          console.log(result.user);
           toast.success("Login Successfully!");
           navigate(location?.state ? location.state : "/");
           
@@ -39,8 +38,7 @@ const Login = () => {
       loginUser(email, password)
         .then(result => {
           const user = result.user;
-          // setUser(user);
-          console.log(user);
+          setUser(user);
           navigate(location?.state ? location.state : "/");
 
           // Update User's Last Login Time
@@ -56,12 +54,12 @@ const Login = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log("Login Info Updated to Database", data);
+              // console.log("Login Info Updated to Database", data);
               toast.success("Login Successfully!");
             });
         })
         .catch(error => {
-          console.log("ERROR", error.message);
+          // console.log("ERROR", error.message);
           Swal.fire({
             icon: "error",
             title: "Oops, Something went wrong!",

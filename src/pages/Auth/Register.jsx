@@ -39,8 +39,6 @@ const Register = () => {
       const confirmPassword = e.target.confirmPassword.value;
       const terms = e.target.terms.checked;
 
-      console.log(name, email, photo, password, confirmPassword);
-
       if (password.length < 6) {
         setError("Password must contain at least 6 characters");
         return;
@@ -64,7 +62,7 @@ const Register = () => {
    
       createNewUser(email, password)
         .then(result => {
-        console.log(result.user);
+          setUser(result.user);
 
         const createdAt = result?.user?.metadata?.creationTime;
         
@@ -80,7 +78,7 @@ const Register = () => {
           })
             .then((res) => res.json())
             .then((data) => {
-              console.log("New User Created to Database", data);
+              // console.log("New User Created to Database", data);
               if (data.insertedId) {
                 Swal.fire({
                   title: "Success!",
@@ -94,7 +92,7 @@ const Register = () => {
             });
         })
         .catch(error => {
-          console.log("ERROR", error.message);
+          // console.log("ERROR", error.message);
         })
     }
 
