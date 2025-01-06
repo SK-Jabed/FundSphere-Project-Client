@@ -19,14 +19,14 @@ const Banner = () => {
     },
     {
       id: 2,
-      image: "https://i.ibb.co.com/N3N9hPY/banner-2.webp",
+      image: "https://i.ibb.co.com/2cNCM5d/68.jpg",
       title: "Together, We Make a Difference",
       description:
         "Imagine a world where every idea, big or small, gets the chance it deserves.  is more than just a platform; it's a movement where individuals unite to bring meaningful projects to life. From supporting social causes and community initiatives to funding innovative technologies. Join us today and discover how your involvement can make dreams come true and leave a lasting impact on the world.",
     },
     {
       id: 3,
-      image: "https://i.ibb.co.com/ZzQrz5w/banner-3.jpg",
+      image: "https://i.ibb.co.com/r20cBJK/10820.jpg",
       title: "Fuel Innovation, Inspire Change",
       description:
         "Innovation is the heartbeat of progress, but even the brightest ideas need a strong foundation of support. At FundSphere, we champion creators, entrepreneurs, and visionaries by providing a platform where ideas can take flight. Together, we can drive change, spark innovation, and inspire the world to move forward.",
@@ -41,7 +41,7 @@ const Banner = () => {
   ];
 
   return (
-    <div className="container w-11/12 mx-auto pt-6 lg:pt-10">
+    <div className="container w-full mx-auto">
       <Swiper
         modules={[Autoplay, Pagination, Navigation]}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -49,7 +49,7 @@ const Banner = () => {
         navigation={true}
         loop={true}
         spaceBetween={30}
-        className="h-[400px] md:h-[500px] lg:h-[600px] rounded-2xl"
+        className="h-[300px] md:h-[350px] lg:h-[520px]"
       >
         {slides.map((slide) => (
           <SwiperSlide key={slide.id}>
@@ -61,7 +61,7 @@ const Banner = () => {
               <img
                 src={slide.image}
                 alt={slide.title}
-                className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover object-center bg-center"
+                className="w-full h-[400px] md:h-[500px] lg:h-[600px] object-cover object-center bg-center bg-cover"
               />
               <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center px-6 md:px-12">
                 <div

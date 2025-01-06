@@ -10,8 +10,8 @@ const Home = () => {
     return (
       <div className='dark:bg-black bg-white'>
         <Banner></Banner>
-        <RunningCampaigns></RunningCampaigns>
         <HowItWorks></HowItWorks>
+        <RunningCampaigns></RunningCampaigns>
         <EmpoweringIdeas></EmpoweringIdeas>
         <WhyChooseUs></WhyChooseUs>
         <JoinCommunity></JoinCommunity>

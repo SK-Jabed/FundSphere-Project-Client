@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
-import logo from "../../src/assets/logo.png";
+import logo from "../../src/assets/top-up.png";
 import { AuthContext } from "../provider/AuthProvider";
 import ThemeToggleButton from "./ThemeToggleButton";
 
@@ -74,56 +74,84 @@ const Navbar = () => {
   );
 
   return (
-    <div className="h-20">
-      <div className=" dark:bg-black bg-white w-full z-50 fixed">
+    <div className="h-[84px]">
+      <div className=" dark:bg-black bg-white w-full z-50 fixed border-b">
         <div className="container w-11/12 mx-auto py-4">
           <div className="mx-auto flex justify-between items-center">
-            <div className="dropdown lg:hidden relative ml-2">
-              <div
-                tabindex="0"
-                role="button"
-                className="btn border-2 p-3 border-solid rounded-full lg:hidden"
-              >
-                <HiMenuAlt1 className="text-xl font-bold" />
+            <div className="dropdown relative ml-2">
+              <div className="flex items-center gap-1">
+                <div
+                  tabindex="0"
+                  role="button"
+                  className="btn border-2 p-3 border-solid rounded-full lg:hidden"
+                >
+                  <HiMenuAlt1 className="text-xl font-bold" />
+                </div>
+                <ul
+                  tabindex="0"
+                  className="menu menu-sm dropdown-content bg-cyan-500 rounded-box z-[1] mt-3 w-52 p-4 shadow absolute left-0"
+                >
+                  {navLinks}
+                </ul>
+                <div>
+                  <img
+                    className="w-12"
+                    src={logo}
+                    alt="Project Logo"
+                  ></img>
+                </div>
               </div>
-
-              <ul
-                tabindex="0"
-                className="menu menu-sm dropdown-content bg-cyan-500 rounded-box z-[1] mt-3 w-52 p-4 shadow absolute left-0"
-              >
-                {navLinks}
-              </ul>
             </div>
-            <div className="flex items-center gap-1">
-              <img className="w-26 h-20 hidden md:block" src={logo} alt="Project Logo"></img>
-              {/* <h2 className="text-3xl hidden lg:flex italic font-bold text-cyan-600 ml-4 md:ml-0">
-                Fund<span className="text-sky-400">Sphere</span>
-              </h2> */}
-            </div>
+            <div className="flex items-center gap-1"></div>
             <div className="">
               <ul className="hidden lg:flex items-center justify-center gap-6">
                 {navLinks}
               </ul>
             </div>
-            <div>
+            <div className="flex items-center gap-2">
+              <ThemeToggleButton></ThemeToggleButton>
               {user && user?.email ? (
-                <div className="flex items-center lg:gap-3">
-                  <img
-                    className="w-16 rounded-full"
-                    src={user?.photoURL}
-                    alt="User Image"
-                    title={user?.displayName}
-                  />
-                  <button
-                    onClick={logoutUser}
-                    type="button"
-                    className="group flex h-14 w-36 items-center justify-center rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 p-[1.5px] text-white duration-300 hover:bg-gradient-to-l hover:shadow-2xl hover:shadow-purple-600/30"
+                <div className="dropdown dropdown-end z-50">
+                  <div
+                    tabIndex={0}
+                    role="button"
+                    className="btn btn-ghost btn-circle avatar"
                   >
-                    <div className="flex h-full w-full px-8  items-center justify-center rounded-lg bg-gray-900 transition duration-300 ease-in-out group-hover:bg-gradient-to-br group-hover:from-gray-700 group-hover:to-gray-900 group-hover:transition group-hover:duration-300 group-hover:ease-in-out text-lg font-semibold">
-                      Log out
+                    <div
+                      title={user?.displayName}
+                      className="w-11 rounded-full"
+                    >
+                      <img
+                        referrerPolicy="no-referrer"
+                        alt="User Profile Photo"
+                        src={user?.photoURL}
+                      />
                     </div>
-                  </button>
-                  <ThemeToggleButton></ThemeToggleButton>
+                  </div>
+                  <ul
+                    tabIndex={0}
+                    className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52"
+                  >
+                    <li>
+                      <Link to="/addCampaign" className="justify-between">
+                        Add Campaign
+                      </Link>
+                    </li>
+                    <li>
+                      <Link to="/myCampaigns">My Campaigns</Link>
+                    </li>
+                    <li>
+                      <Link to="/myDonations">My Donations</Link>
+                    </li>
+                    <li className="mt-2">
+                      <button
+                        onClick={logoutUser}
+                        className="bg-gray-200 block text-center"
+                      >
+                        Logout
+                      </button>
+                    </li>
+                  </ul>
                 </div>
               ) : (
                 <div className="flex items-center gap-1">
@@ -136,7 +164,7 @@ const Navbar = () => {
                       Login
                     </div>
                   </Link>
-                  <Link
+                  {/* <Link
                     to={"/auth/register"}
                     type="button"
                     className="group flex h-14 w-36 items-center justify-center rounded-lg bg-gradient-to-r from-purple-500 via-red-500 to-yellow-500 p-[1.5px] text-white duration-300 hover:bg-gradient-to-l hover:shadow-2xl hover:shadow-purple-600/30"
@@ -144,8 +172,7 @@ const Navbar = () => {
                     <div className="flex h-full w-full px-8  items-center justify-center rounded-lg bg-gray-900 transition duration-300 ease-in-out group-hover:bg-gradient-to-br group-hover:from-gray-700 group-hover:to-gray-900 group-hover:transition group-hover:duration-300 group-hover:ease-in-out text-lg font-semibold">
                       Register
                     </div>
-                  </Link>
-                  <ThemeToggleButton></ThemeToggleButton>
+                  </Link> */}
                 </div>
               )}
             </div>
