@@ -12,6 +12,9 @@ import CampaignDetails from "../pages/Campaigns/CampaignDetails/CampaignDetails"
 import PrivateRoute from "./PrivateRoute";
 import UpdateCampaign from "../pages/Campaigns/UpdateCampaign/UpdateCampaign";
 import NotFound from "../pages/NotFound/NotFound";
+import AboutUs from "../pages/Others/AboutUs/AboutUs";
+import ContactUs from "../pages/Others/ContactUs/ContactUs";
+import SuccessStories from "../pages/Others/SuccessStories/SuccessStories";
 
 const router = createBrowserRouter([
   {
@@ -37,16 +40,22 @@ const router = createBrowserRouter([
             <CampaignDetails></CampaignDetails>
           </PrivateRoute>
         ),
-        // loader: async ({ params }) => {
-        //   const response = await fetch(
-        //     `https://b10-assignment-10-server.vercel.app/campaign/${params.id}`
-        //   );
-        //   return response.json();
-        // },
         loader: ({ params }) =>
           fetch(
             `https://b10-assignment-10-server.vercel.app/campaign/${params.id}`
           ),
+      },
+      {
+        path: "/about",
+        element: <AboutUs></AboutUs>,
+      },
+      {
+        path: "/contact",
+        element: <ContactUs></ContactUs>,
+      },
+      {
+        path: "/successStories",
+        element: <SuccessStories></SuccessStories>,
       },
       {
         path: "/addCampaign",

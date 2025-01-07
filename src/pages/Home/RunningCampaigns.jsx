@@ -1,13 +1,13 @@
 import React from "react";
-import { useLoaderData, useNavigate } from "react-router-dom";
 import { Fade } from "react-awesome-reveal";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 const RunningCampaigns = () => {
   const runningCampaigns = useLoaderData();
   const navigate = useNavigate();
 
   return (
-    <div className="py-10 bg-gray-100 dark:bg-black">
+    <div className="py-10 bg-gray-100 dark:bg-gray-900">
       <h2 className="text-4xl dark:text-white font-bold text-center mb-8">
         Running Campaigns
       </h2>

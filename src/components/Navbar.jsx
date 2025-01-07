@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
-import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
+import { Link, NavLink } from "react-router-dom";
 import logo from "../../src/assets/FundShere-logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 import ThemeToggleButton from "./ThemeToggleButton";
@@ -41,9 +41,9 @@ const Navbar = () => {
               ? "text-lg font-bold text-cyan-400 underline"
               : "text-lg font-medium text-gray-800 hover:text-cyan-400 dark:text-white"
           }
-          to={"/addCampaign"}
+          to={"/about"}
         >
-          Add Campaign
+          About Us
         </NavLink>
       </li>
       <li>
@@ -53,9 +53,9 @@ const Navbar = () => {
               ? "text-lg font-bold text-cyan-400 underline"
               : "text-lg font-medium text-gray-800 hover:text-cyan-400 dark:text-white"
           }
-          to={"/myCampaigns"}
+          to={"/contact"}
         >
-          My Campaigns
+          Contact Us
         </NavLink>
       </li>
       <li>
@@ -65,9 +65,9 @@ const Navbar = () => {
               ? "text-lg font-bold text-cyan-400 underline"
               : "text-lg font-medium text-gray-800 hover:text-cyan-400 dark:text-white"
           }
-          to={"/myDonations"}
+          to={"/successStories"}
         >
-          My Donations
+          Stories
         </NavLink>
       </li>
     </>
@@ -75,7 +75,7 @@ const Navbar = () => {
 
   return (
     <div className="h-[84px]">
-      <div className=" dark:bg-black bg-white w-full z-50 fixed border-b">
+      <div className=" dark:bg-gray-900 bg-white w-full z-50 fixed border-b">
         <div className="container w-11/12 mx-auto py-4">
           <div className="mx-auto flex justify-between items-center">
             <div className="dropdown relative ml-2">
@@ -94,11 +94,7 @@ const Navbar = () => {
                   {navLinks}
                 </ul>
                 <div>
-                  <img
-                    className="w-[42px]"
-                    src={logo}
-                    alt="Project Logo"
-                  ></img>
+                  <img className="w-[42px]" src={logo} alt="Project Logo"></img>
                 </div>
               </div>
             </div>

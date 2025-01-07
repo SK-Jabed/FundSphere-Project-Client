@@ -51,8 +51,8 @@
 // export default EmpoweringIdeas;
 
 import React from "react";
-import { Typewriter } from "react-simple-typewriter";
 import { Fade } from "react-awesome-reveal";
+import { Typewriter } from "react-simple-typewriter";
 
 const ideas = [
   {
@@ -74,7 +74,7 @@ const ideas = [
 
 const EmpoweringIdeas = () => {
   return (
-    <div className="py-10 bg-gray-100 dark:bg-black">
+    <div className="py-10 bg-gray-100 dark:bg-gray-900">
       <h2 className="text-4xl font-bold text-center dark:text-white mb-4">
         <Typewriter
           words={[

@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 // import { Fade } from "react-awesome-reveal";
 
 const AllCampaigns = () => {
@@ -23,7 +23,7 @@ const AllCampaigns = () => {
   };
 
   return (
-    <div className="dark:bg-black py-16">
+    <div className="dark:bg-gray-900 py-16">
       <div className="flex flex-col md:flex-row justify-between items-center w-11/12 mx-auto mb-4 gap-2">
         <h1 className="text-2xl font-bold text-black dark:text-white">
           All Campaigns: {campaigns.length}
@@ -70,29 +70,29 @@ const AllCampaigns = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 mx-auto">
         {campaigns.map((campaign) => (
           // <Fade key={campaign._id} direction="up" duration={800}>
-            <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 h-[480px]">
-              <img
-                src={campaign.image}
-                alt={campaign.title}
-                className="w-full h-56 object-cover rounded-t-lg"
-              />
-              <h3 className="text-xl font-bold mt-4">{campaign.title}</h3>
-              <p className="text-gray-700 mt-2">{campaign.description}</p>
-              <div className="mt-4">
-                <p className="text-sm mt-2">
-                  Deadline: {new Date(campaign.deadline).toLocaleDateString()}
-                </p>
-                <p className="text-sm">
-                  Minimum Donation: ${campaign.minDonation}
-                </p>
-                <button
-                  onClick={() => navigate(`/campaign/${campaign._id}`)}
-                  className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold shadow-lg hover:shadow-xl hover:bg-gradient-to-l hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 transition duration-300 ease-in-out mt-2"
-                >
-                  See More
-                </button>
-              </div>
+          <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 h-[480px]">
+            <img
+              src={campaign.image}
+              alt={campaign.title}
+              className="w-full h-56 object-cover rounded-t-lg"
+            />
+            <h3 className="text-xl font-bold mt-4">{campaign.title}</h3>
+            <p className="text-gray-700 mt-2">{campaign.description}</p>
+            <div className="mt-4">
+              <p className="text-sm mt-2">
+                Deadline: {new Date(campaign.deadline).toLocaleDateString()}
+              </p>
+              <p className="text-sm">
+                Minimum Donation: ${campaign.minDonation}
+              </p>
+              <button
+                onClick={() => navigate(`/campaign/${campaign._id}`)}
+                className="px-8 py-3 rounded-full bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 text-white font-bold shadow-lg hover:shadow-xl hover:bg-gradient-to-l hover:from-pink-500 hover:via-purple-500 hover:to-indigo-500 transition duration-300 ease-in-out mt-2"
+              >
+                See More
+              </button>
             </div>
+          </div>
           // </Fade>
         ))}
       </div>

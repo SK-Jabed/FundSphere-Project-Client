@@ -1,8 +1,7 @@
-import React, { useContext } from 'react';
-import { Outlet } from 'react-router-dom';
-import Navbar from '../components/Navbar';
-import Footer from '../components/Footer';
-import { AuthContext } from '../provider/AuthProvider';
+import React from "react";
+import { Outlet } from "react-router-dom";
+import Footer from "../components/Footer";
+import Navbar from "../components/Navbar";
 
 const MainLayout = () => {
   // const {user} = useContext(AuthContext);
@@ -13,8 +12,7 @@ const MainLayout = () => {
       {/* Navbar */}
       <Navbar></Navbar>
       {/* Dynamic Contents */}
-      <div className='dark:bg-black'>
-
+      <div className="dark:bg-gray-900">
         <Outlet></Outlet>
       </div>
       {/* Footer */}
