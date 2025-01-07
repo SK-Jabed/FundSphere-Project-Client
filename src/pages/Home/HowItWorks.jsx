@@ -9,22 +9,19 @@ const HowItWorks = () => {
 
   const steps = [
     {
-      title: "Report Lost Items",
-      description:
-        "Easily report your lost belongings with detailed descriptions to reach the right people.",
-      icon: "🔎", // Use emojis or replace with SVGs/icons
+      title: "Start a Campaign",
+      description: "Share your cause or project and set a fundraising goal.",
+      icon: "📤", // Use emojis or replace with SVGs/icons
     },
     {
-      title: "Post Found Items",
-      description:
-        "Found something? Share the details and help someone reconnect with their lost item.",
-      icon: "📦",
+      title: "Spread the Word",
+      description: "Promote your campaign on social media to reach supporters.",
+      icon: "📢",
     },
     {
-      title: "Reunite & Claim",
-      description:
-        "Use our secure platform to reunite with your belongings and claim them safely.",
-      icon: "🤝",
+      title: "Receive Contributions",
+      description: "Collect funds securely from donors around the world.",
+      icon: "💰",
     },
   ];
 
