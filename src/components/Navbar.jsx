@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Link, NavLink } from "react-router-dom";
 import { HiMenuAlt1 } from "react-icons/hi";
-import logo from "../../src/assets/top-up.png";
+import logo from "../../src/assets/FundShere-logo.png";
 import { AuthContext } from "../provider/AuthProvider";
 import ThemeToggleButton from "./ThemeToggleButton";
 
@@ -95,7 +95,7 @@ const Navbar = () => {
                 </ul>
                 <div>
                   <img
-                    className="w-12"
+                    className="w-[42px]"
                     src={logo}
                     alt="Project Logo"
                   ></img>

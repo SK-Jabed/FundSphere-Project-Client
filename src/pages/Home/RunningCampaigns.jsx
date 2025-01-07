@@ -14,11 +14,11 @@ const RunningCampaigns = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 w-11/12 mx-auto">
         {runningCampaigns.map((campaign) => (
           <Fade key={campaign._id} direction="up" duration={800}>
-            <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105">
+            <div className="p-6 bg-white rounded-lg shadow-lg hover:shadow-2xl transition-transform transform hover:scale-105 h-[480px]">
               <img
                 src={campaign.image}
                 alt={campaign.title}
-                className="w-full h-48 object-cover rounded-t-lg"
+                className="w-full h-56 object-cover rounded-t-lg"
               />
               <h3 className="text-xl font-bold mt-4">{campaign.title}</h3>
               <p className="text-gray-700 mt-2">{campaign.description}</p>

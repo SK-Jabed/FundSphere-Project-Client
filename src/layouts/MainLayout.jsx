@@ -13,7 +13,10 @@ const MainLayout = () => {
       {/* Navbar */}
       <Navbar></Navbar>
       {/* Dynamic Contents */}
+      <div className='dark:bg-black'>
+
         <Outlet></Outlet>
+      </div>
       {/* Footer */}
       <Footer></Footer>
     </div>
