@@ -6,7 +6,6 @@ import Swal from "sweetalert2";
 const CampaignDetails = () => {
   // const campaign = useLoaderData();
   const campaign = useLoaderData();
-  // console.log(campaign);
   const { user } = useContext(AuthContext);
 
   const handleDonate = async () => {

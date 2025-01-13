@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-// import { toast } from "react-toastify";
 import { AuthContext } from "../../../provider/AuthProvider";
 import Swal from "sweetalert2";
 import { Link } from "react-router-dom";
@@ -23,7 +22,6 @@ const MyCampaigns = () => {
 
     fetchCampaigns();
   }, [user.email]);
-
 
   const handleDelete = (_id) => {
     Swal.fire({
