@@ -1,12 +1,11 @@
 import React from "react";
-// import FooterLogo from "../../assets/logo.png";
+
 
 const Footer = () => {
   return (
     <div className="absolute w-full">
       <div className="w-full bg-[#06091A] pt-12">
         <div className="flex justify-center items-center">
-          {/* <img className="w-24 h-20" src={FooterLogo} alt="Footer Logo"></img> */}
         </div>
         <div className="container lg:w-11/12 w-full mx-auto pt-16 pb-[72px] px-5 lg:px-16 grid grid-cols-1 lg:grid-cols-3 gap-5 lg:gap-48">
           <div className="left-side-content flex flex-col gap-2 items-start">
