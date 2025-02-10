@@ -53,8 +53,8 @@ const Banner = () => {
           <SwiperSlide key={slide.id}>
             <div
               className="relative"
-              data-aos="fade-up" // Animation type
-              data-aos-duration="1500" // Custom animation duration
+              data-aos="fade-up"
+              data-aos-duration="1500"
             >
               <img
                 src={slide.image}
@@ -64,7 +64,7 @@ const Banner = () => {
               <div className="absolute inset-0 bg-black bg-opacity-50 flex flex-col justify-center px-6 md:px-12">
                 <div
                   className="max-w-lg bg-white bg-opacity-80 p-4 rounded-lg shadow-lg hidden md:block"
-                  data-aos="fade-right" // Another animation type
+                  data-aos="fade-right"
                 >
                   <h2 className="text-xl md:text-3xl font-bold text-gray-800 mb-2">
                     {slide.title}
