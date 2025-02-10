@@ -1,5 +1,7 @@
 # **FundSphere - A Modern Crowdfunding Platform** 🚀💰  
 
+![CasePix Banner](https://github.com/SK-Jabed/FundSphere-Project-Client/blob/0c96772db2c1e3d89f35cc6865b1af1a5d4640b0/src/assets/Screenshot%202025-02-07%20155724.png)
+
 ## 📌 **Project Overview**  
 **FundSphere** is a **modern, secure, and user-friendly** crowdfunding platform designed for **entrepreneurs, creators, and individuals** looking to raise funds for their ideas, causes, or startups. The client-side of **FundSphere** is built with **React, Tailwind CSS, and Firebase**, ensuring a **smooth and interactive** user experience with secure authentication and real-time campaign tracking.  
 

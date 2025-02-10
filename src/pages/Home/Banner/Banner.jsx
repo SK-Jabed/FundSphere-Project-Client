@@ -2,7 +2,7 @@ import React from "react";
 import "swiper/css";
 import "swiper/css/autoplay";
 import "swiper/css/pagination";
-import "./Banner.css"; // Custom styles if needed
+import "./Banner.css";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 
